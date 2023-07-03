@@ -1,0 +1,30 @@
+import useUploadModal from "@/hooks/useUploadModal";
+import {FieldValues, useForm} from "react-hook-form";
+import Modal from "./Modal";
+
+const UploadModal = () => {
+    const uploadModal = useUploadModal();
+    const {} = useForm<FieldValues>({
+        defaultValues: {
+            author
+        }
+    })
+
+    const onChange = (open: boolean) => {
+        if (!open) {
+          // reset form
+          uploadModal.onClose();
+        }
+      }
+    return ( 
+        <Modal 
+         title="Add a song"
+         description="Upload an mp3 file"
+         isOpen={uploadModal.isOpen}
+         onChange={onChange}>
+            upload 
+        </Modal>
+     );
+}
+ 
+export default UploadModal;

@@ -1,0 +1,24 @@
+import useUploadModal from "@/hooks/useUploadModal";
+import Modal from "./Modal";
+
+const UploadModal = () => {
+    const uploadModal = useUploadModal();
+
+    const onChange = (open: boolean) => {
+        if (!open) {
+          // reset form
+          uploadModal.onClose();
+        }
+      }
+    return ( 
+        <Modal 
+         title="A"
+         description="upload modal desc"
+         isOpen={uploadModal.isOpen}
+         onChange={onChange}>
+            upload 
+        </Modal>
+     );
+}
+ 
+export default UploadModal;
